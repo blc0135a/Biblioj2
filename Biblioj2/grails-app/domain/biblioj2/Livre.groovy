@@ -6,9 +6,9 @@ class Livre {
 	int nombreExemplairesDisponibles
 	TypeDocument type
 	static hasMany = [auteurs: Auteur, 
-					reservations : LivreReserve]
+					reservations : Reservation]
 	
-	static belongsTo = Auteur
+	static belongsTo = Reservation
 	
 	static constraints = {
 		titre(blank:false)

@@ -4,7 +4,7 @@ class Reservation {
 	String code
 	Date dateReservation
 	
-	static hasMany = [livresReserves : LivreReserve]
+	static hasMany = [livresReserves : Livre]
 	
 	static constraints = {
 		code(blank:false, unique:true)
@@ -27,18 +27,19 @@ class Reservation {
 		
 		if(this.livresReserves == null) { //Si le "panier" est vide -> le créer et ajouter un exemplaire du livre
 			this.livresReserves = new HashSet();
-			this.livresReserves.add(new LivreReserve(livre : Livre.findById(id), reservation : this, quantite : 1))
+			Livre livreAjoute = Livre.findById(id);
+			this.livresReserves.add(livreAjoute)
 		} else {
 			boolean livreExistant = false
 			for(livre in livresReserves) {
-				if(livre.livre.id == id && !livrexistant) {
-					livre.quantite = livre.quantite + 1
-					livreExistant = true
-					break
+				// Si le livre est déjà dans le panier
+				if(livre.id == id && !livreExistant) {
+					return false
 				}
 			}
 			if(!livreExistant) {
-				this.livresReserves.add(new LivreReserve(livre : Livre.findById(id), reservation : this, quantite : 1))
+				Livre livreAjoute = Livre.findById(id);
+				this.livresReserves.add(livreAjoute)
 			}
 		}
 			return true

@@ -5,6 +5,23 @@ import org.springframework.dao.DataIntegrityViolationException
 class ReservationController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def ajouterLivreDansReservation(Long id){
+		def session = request.getSession(true);
+		if(session.getAttribute("maReservation") == null) {
+			session.setAttribute("maReservation", new Reservation(code : "NULL"))
+		}
+		
+		def maReservation = (Reservation) session.getAttribute("maReservation");
+		def done = maReservation.ajouterExemplaireLivre(id)
+		if(done) {
+		flash.message = "Livre ajouté a votre panier"
+		} else {
+		flash.message = "Vous possédez déjà un exemplaire de ce livre dans votre panier"
+		}
+		
+		redirect(controller : "livre", action: "list")
+	}
 
     def index() {
         redirect(action: "list", params: params)

@@ -10,13 +10,7 @@
 		
 		<div id="page-body" role="main">
 			<h1>Bienvenu sur Biblioj</h1>
-			<h2>Actions disponibles :</h2>
-			
-			<div id="controller-list" role="navigation">
-				<ul>
-					<li class="controller">Rechercher des livres</li>
-				</ul>
-			</div>
+
 
 			<div id="controller-list" role="navigation">
 				<h2>Visualiser la liste des:</h2>

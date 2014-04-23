@@ -11,7 +11,7 @@ class Auteur {
 
     static constraints = {
 		nom (blank : false)
-		prenom (nullable : true, blank : false)
+		prenom (blank : false)
 	}
 	
 	String toString() {

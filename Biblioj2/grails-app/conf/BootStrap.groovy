@@ -19,7 +19,7 @@ class BootStrap {
 			def larsson = new Auteur(nom:"Larsson", prenom:"Stieg").save(failOnError: true)
 			def ferrari = new Auteur(nom:"Ferrari", prenom:"Jérôme").save(failOnError: true)
 			def pennac = new Auteur(nom:"Pennac", prenom:"Daniel").save(failOnError: true)
-			def dicker = new Auteur(nom:"Dicker", prenom:"Jo�l").save(failOnError: true)
+			def dicker = new Auteur(nom:"Dicker", prenom:"Joel").save(failOnError: true)
 			def jonasson = new Auteur(nom:"Jonasson", prenom:"Jonas").save(failOnError: true)
 			
 			new Livre(titre:"Rien ne s'oppose à la nuit : roman", auteurs:vigan, type:nouveaute, nombreExemplairesDisponibles: 2, nombreExemplaires:2).save(failOnError: true)

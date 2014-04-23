@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list livre">
 			
+						<div>
+								<g:if test="${fieldValue(bean: livreInstance, field: "nombreExemplairesDisponibles") != '0'}" >
+									<g:link controller="reservation" action="ajouterLivreDansReservation"id="${livreInstance.id}">ajouter au panier</g:link>
+								</g:if>
+						</div>
+						<div>
+							<g:link controller="reservation" action="supprimerLivreDuPanier" id="${livreInstance?.id}">retirer du panier</g:link>
+						</div>
+			
 				<g:if test="${livreInstance?.titre}">
 				<li class="fieldcontain">
 					<span id="titre-label" class="property-label"><g:message code="livre.titre.label" default="Titre" /></span>

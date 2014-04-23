@@ -10,10 +10,9 @@ class ToolsTagLib {
 		out << "<li>"
 		
 		if(maReservation == null || maReservation.livresReserves == null) {
-			out << "<a href='http://localhost:8080/BiblioJ/reservation/showCurrentReservation'>Mon Panier <br/> Total : <i>vide</i></a>"
+			out << "Mon Panier <br/> Total : <i>vide</i>"
 		} else {
-			out << "<a href='http://localhost:8080/BiblioJ/reservation/showCurrentReservation'>Mon Panier</a>"
-			out << "<ul>"
+			out << "Mon Panier <ul>"
 		for(livre in maReservation.livresReserves) {
 			out << "<li>"
 			out << livre

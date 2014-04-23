@@ -32,7 +32,7 @@ class ReservationController {
 		def maReservation = (Reservation) session.getAttribute("maReservation");
 		def done = maReservation.supprimerLivre(id)
 		if(done) {
-		flash.message = "Livre retirer de votre panier"
+		flash.message = "Livre retiré de votre panier"
 		} else {
 		flash.message = "Vous ne possédiez pas ce livre dans votre panier"
 		}

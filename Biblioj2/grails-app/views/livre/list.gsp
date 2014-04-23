@@ -14,7 +14,8 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
-		</div>
+		</div>	
+		
 		<div id="list-livre" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -62,6 +63,18 @@
 			<div class="pagination">
 				<g:paginate total="${livreInstanceTotal}" />
 			</div>
+			
+			<h1>Chercher livre</h1>
+				<hr width=60% color=gray/>
+			
+			<g:form name="rechercher" url="[action:'rechercherLivre',controller:'Livre']" method="get">
+				<g:field type="text" name="titre" placeholder="Titre de livre" value="${params.titreLivre}"/> <br>
+				<g:field type="text" name="nom_auteur" placeholder="Nom d'auteur de livre" value="${params.nomAuteur}"/><br>
+				<g:field type="text" name="typeDocument" placeholder="Type de document" value="${params.typeDocument}"/><br>
+				<g:field type="submit" name="submit" value="Rechercher"/>
+			</g:form>
+			
+			
 		</div>
 	</body>
 </html>

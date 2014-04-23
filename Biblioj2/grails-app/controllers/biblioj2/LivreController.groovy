@@ -5,6 +5,13 @@ import org.springframework.dao.DataIntegrityViolationException
 class LivreController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	
+	def rechercherLivre(String titreLivre, String nomAuteur, String typeDocument){
+		LivreService livreService = new LivreService();
+		render(view: "list", model: livreService.chercherLivre(titreLivre, nomAuteur, typeDocument, params));
+		
+	}
 
     def index() {
         redirect(action: "list", params: params)

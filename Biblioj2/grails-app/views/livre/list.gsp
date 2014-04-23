@@ -46,11 +46,13 @@
 					
 						<td>${fieldValue(bean: livreInstance, field: "type")}</td>
 						
-						<td>	<span class="actionButton">
+						<td>
 								<g:if test="${fieldValue(bean: livreInstance, field: "nombreExemplairesDisponibles") != '0'}" >
 									<g:link controller="reservation" action="ajouterLivreDansReservation"id="${livreInstance.id}">+</g:link>
 								</g:if>
-							</span>
+						</td>
+						<td>
+							<g:link controller="reservation" action="supprimerLivreDuPanier" id="${livreInstance?.id}">-</g:link>
 						</td>
 					
 					</tr>

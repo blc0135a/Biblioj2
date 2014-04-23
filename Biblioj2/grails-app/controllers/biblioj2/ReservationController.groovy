@@ -13,11 +13,28 @@ class ReservationController {
 		}
 		
 		def maReservation = (Reservation) session.getAttribute("maReservation");
-		def done = maReservation.ajouterExemplaireLivre(id)
+		def done = maReservation.ajouterLivre(id)
 		if(done) {
 		flash.message = "Livre ajouté a votre panier"
 		} else {
 		flash.message = "Vous possédez déjà un exemplaire de ce livre dans votre panier"
+		}
+		
+		redirect(controller : "livre", action: "list")
+	}
+	
+	def supprimerLivreDuPanier(Long id){
+		def session = request.getSession(true);
+		if(session.getAttribute("maReservation") == null) {
+			session.setAttribute("maReservation", new Reservation(code : "NULL"))
+		}
+		
+		def maReservation = (Reservation) session.getAttribute("maReservation");
+		def done = maReservation.supprimerLivre(id)
+		if(done) {
+		flash.message = "Livre retirer de votre panier"
+		} else {
+		flash.message = "Vous ne possédiez pas ce livre dans votre panier"
 		}
 		
 		redirect(controller : "livre", action: "list")

@@ -17,6 +17,7 @@ class ToolsTagLib {
 		for(livre in maReservation.livresReserves) {
 			out << "<li>"
 			out << livre
+			
 			out << "</li>"
 		}
 			out << "<br/> Total : <i>" + maReservation.livresReserves.size() + " produits</>"
